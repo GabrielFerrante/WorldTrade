@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">WorldTrade</string>
+    <!-- Strings used for fragments for navigation -->
+
+    <!-- Strings A1 -->
+    <string name="conversao">Conversão de moedas</string>
+    <string name="para">Para</string>
+    <string name="de">De</string>
+    <string name="valor">Valor</string>
+    <string name="moedas">Moedas</string>
+
+    <!-- Strings A2 -->
+
+
+    <!-- Strings A3 -->
+
+
+    <!-- Strings Menu -->
+    <string name="sair">Sair</string>
+    <string name="aprender">Aprender</string>
+    <string name="title_activity_resultado">ResultadoActivity</string>
+
+
+
+</resources>
