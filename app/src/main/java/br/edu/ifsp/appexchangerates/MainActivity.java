@@ -2,24 +2,74 @@ package br.edu.ifsp.appexchangerates;
 
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
+    private Spinner sp1, sp2;
+    String De, Para;
+    private static final String OpenExchangeRates_moedas = "https://openexchangerates.org/currencies.json?show_alternative=1";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+        this.sp1 = findViewById(R.id.cbSiglasDe);
+        this.sp2 = findViewById(R.id.cbSiglasPara);
+        try {
+            WSClientBuscaMoedas wsClientBuscaMoedas = new WSClientBuscaMoedas(this);
+
+            wsClientBuscaMoedas.execute(new String[]{OpenExchangeRates_moedas});
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+
+    }
+
+    public void popularSpinner(ArrayList<String> siglas){
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, siglas);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        this.sp1.setAdapter(adapter);
+        this.sp2 .setAdapter(adapter);
+
+        this.sp1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                De = (String )sp1.getSelectedItem();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        this.sp2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Para = (String )sp2.getSelectedItem();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
 
     }

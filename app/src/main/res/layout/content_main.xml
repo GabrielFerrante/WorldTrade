@@ -64,6 +64,7 @@
                 android:id="@+id/txtValor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10sp"
                 android:ems="10"
                 android:inputType="numberDecimal" />
 
@@ -89,7 +90,8 @@
             <Spinner
                 android:id="@+id/cbSiglasDe"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:layout_marginRight="10sp"/>
         </TableRow>
 
         <TableRow
@@ -112,11 +114,12 @@
             <Spinner
                 android:id="@+id/cbSiglasPara"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:layout_marginRight="10sp"/>
         </TableRow>
 
         <TableRow
-            android:id="@+id/rowBotao"
+            android:id="@+id/rowBotoes"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="20sp"
@@ -130,5 +133,6 @@
                 android:background="@color/cardview_light_background"
                 app:srcCompat="@mipmap/ic_botao_converter_foreground" />
         </TableRow>
+
     </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
