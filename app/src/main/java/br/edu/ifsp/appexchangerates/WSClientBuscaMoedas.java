@@ -40,7 +40,7 @@ public class WSClientBuscaMoedas extends AsyncTask<String,Void,ArrayList<String>
         ArrayList<String> siglas = new ArrayList<String>();
         URL url ;
             try {
-                Thread.sleep(2000);
+                Thread.sleep(1000);
                 String sUrl = strings[0];
                 url = new URL(sUrl);
                 HttpURLConnection conn;
@@ -77,7 +77,7 @@ public class WSClientBuscaMoedas extends AsyncTask<String,Void,ArrayList<String>
         jsonReader.beginObject();
 
         while (jsonReader.hasNext()) {
-            siglas.add(jsonReader.nextName() +" : "+jsonReader.nextString());
+            siglas.add(jsonReader.nextName() +" "+jsonReader.nextString());
         }
 
         jsonReader.endObject();

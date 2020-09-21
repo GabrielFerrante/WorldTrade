@@ -10,13 +10,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private Spinner sp1, sp2;
-    String De, Para;
+    String de, para;
+    EditText valor;
     private static final String OpenExchangeRates_moedas = "https://openexchangerates.org/currencies.json?show_alternative=1";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +30,11 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        valor = findViewById(R.id.txtValor);
         this.sp1 = findViewById(R.id.cbSiglasDe);
         this.sp2 = findViewById(R.id.cbSiglasPara);
+
+        //CHAMA O PROCESSO ASSINCRONO DE BUSCA DAS MOEDAS
         try {
             WSClientBuscaMoedas wsClientBuscaMoedas = new WSClientBuscaMoedas(this);
 
@@ -50,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         this.sp1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                De = (String )sp1.getSelectedItem();
+                de = (String )sp1.getSelectedItem();
             }
 
             @Override
@@ -62,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         this.sp2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Para = (String )sp2.getSelectedItem();
+                para = (String )sp2.getSelectedItem();
             }
 
             @Override
@@ -92,5 +99,17 @@ public class MainActivity extends AppCompatActivity {
 
 
         return super.onOptionsItemSelected(item);
+    }
+
+    //CHAMA O PROCESSO ASSINCRONO DE CONVERSÃO
+    public void onClickConverter(View view){
+        try {
+            WSClientConvert ws = new WSClientConvert(this);
+            ws.execute(new String[]{valor.getText().toString(), de, para});
+        }catch (Exception e){
+            e.printStackTrace();
+            Snackbar.make(valor,"Erro",Snackbar.LENGTH_LONG).show();
+        }
+
     }
 }
