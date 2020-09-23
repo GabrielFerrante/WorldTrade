@@ -1,5 +1,6 @@
-package br.edu.ifsp.appexchangerates;
+package br.edu.ifsp.appexchangerates.Template;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,11 +13,14 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
+
+import br.edu.ifsp.appexchangerates.AsyncTasks.WSClientBuscaMoedas;
+import br.edu.ifsp.appexchangerates.AsyncTasks.WSClientConvert;
+import br.edu.ifsp.appexchangerates.R;
 
 public class MainActivity extends AppCompatActivity {
     private Spinner sp1, sp2;
@@ -97,6 +101,19 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
 
+        switch (id){
+            case R.id.action_aprender:
+                Intent intent = new Intent(this,AprenderActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.action_sair:
+                finish();
+                break;
+
+            default:
+                break;
+
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -108,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
             ws.execute(new String[]{valor.getText().toString(), de, para});
         }catch (Exception e){
             e.printStackTrace();
-            Snackbar.make(valor,"Erro",Snackbar.LENGTH_LONG).show();
+            Snackbar.make(valor,R.string.erroConverter,Snackbar.LENGTH_LONG).show();
         }
 
     }

@@ -8,19 +8,16 @@
     <string name="de">De</string>
     <string name="valor">Valor</string>
     <string name="moedas">Moedas</string>
-
+    <string name="erroConverter">Erro em converter</string>
     <!-- Strings A2 -->
     <string name="resultado">Resultado</string>
     <string name="compartilhar">Compartilhar</string>
     <string name="novamente">Novamente</string>
     <!-- Strings A3 -->
-
-
+    <string name="titulo">Compartilhe sua conversão com:</string>
+    <string name="falhaEnvioMensagem">Falha em escolher app para enviar mensagem</string>
     <!-- Strings Menu -->
     <string name="sair">Sair</string>
-    <string name="aprender">Aprender</string>
     <string name="title_activity_resultado">ResultadoActivity</string>
-
-
 
 </resources>

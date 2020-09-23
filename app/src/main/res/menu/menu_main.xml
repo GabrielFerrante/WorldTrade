@@ -1,13 +1,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="br.edu.ifsp.appexchangerates.MainActivity">
+    tools:context="br.edu.ifsp.appexchangerates.Template.MainActivity">
     <item
         android:id="@+id/action_aprender"
         android:icon="@mipmap/ic_conversao"
         android:orderInCategory="100"
-        android:title="@string/aprender"
-        app:showAsAction="always|never" />
+        app:showAsAction="always" />
     <item
         android:id="@+id/action_sair"
         android:orderInCategory="100"

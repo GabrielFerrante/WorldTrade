@@ -1,4 +1,4 @@
-package br.edu.ifsp.appexchangerates;
+package br.edu.ifsp.appexchangerates.AsyncTasks;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -12,6 +12,8 @@ import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+
+import br.edu.ifsp.appexchangerates.Template.MainActivity;
 
 public class WSClientBuscaMoedas extends AsyncTask<String,Void,ArrayList<String>> {
 

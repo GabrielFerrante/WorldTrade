@@ -20,13 +20,12 @@
                 android:id="@+id/rowIcone"
                 android:layout_width="match_parent"
                 android:layout_height="98dp"
-                android:layout_marginTop="20sp"
                 android:gravity="center">
 
                 <ImageView
                     android:id="@+id/imgIcon"
                     android:layout_width="wrap_content"
-                    android:layout_height="189dp"
+                    android:layout_height="match_parent"
                     android:scrollbarSize="4sp"
                     app:srcCompat="@mipmap/ic_launcher_foreground" />
             </TableRow>
@@ -55,9 +54,9 @@
 
                 <TextView
                     android:id="@+id/lblValor"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="50sp"
                     android:fontFamily="@font/carter_one"
                     android:gravity="center"
                     android:text="@string/valor"
@@ -69,6 +68,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10sp"
+                    android:layout_weight="1"
                     android:ems="10"
                     android:inputType="numberDecimal" />
 
@@ -82,9 +82,9 @@
 
                 <TextView
                     android:id="@+id/lblDe"
-                    android:layout_width="wrap_content"
+                    android:layout_width="109dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
+                    android:layout_marginRight="50sp"
                     android:fontFamily="@font/carter_one"
                     android:gravity="center"
                     android:text="@string/de"
@@ -94,7 +94,7 @@
                 <Spinner
                     android:id="@+id/cbSiglasDe"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="47dp"
                     android:layout_marginRight="10sp" />
             </TableRow>
 
@@ -106,9 +106,9 @@
 
                 <TextView
                     android:id="@+id/lblPara"
-                    android:layout_width="wrap_content"
+                    android:layout_width="153dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_marginRight="50sp"
                     android:fontFamily="@font/carter_one"
                     android:gravity="center"
                     android:text="@string/para"
@@ -118,8 +118,9 @@
                 <Spinner
                     android:id="@+id/cbSiglasPara"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="48dp"
                     android:layout_marginRight="10sp" />
+
             </TableRow>
 
             <TableRow
@@ -129,10 +130,12 @@
                 android:layout_marginTop="20sp"
                 android:background="@color/cardview_light_background">
 
+                s
+
                 <ImageButton
                     android:id="@+id/btnConverter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_width="124dp"
+                    android:layout_height="81dp"
                     android:layout_weight="1"
                     android:background="@color/cardview_light_background"
                     android:onClick="onClickConverter"

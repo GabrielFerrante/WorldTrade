@@ -1,27 +1,32 @@
-package br.edu.ifsp.appexchangerates;
+package br.edu.ifsp.appexchangerates.AsyncTasks;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.renderscript.Double3;
 import android.util.JsonReader;
-import android.util.Log;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.math.BigDecimal;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
+
+import br.edu.ifsp.appexchangerates.Template.ResultadoActivity;
 
 public class WSClientConvert extends AsyncTask <String,Void,Double> {
     private final static String BASE = "https://openexchangerates.org/api/latest.json";
     private final static String KEY = "d6c0fcc6818e49338537ca30c3a2d2a8";
-    public final static String KEY_INTENT = "resultado";
+    public final static String KEY_INTENT_RESULTADO = "resultado";
+    public final static String KEY_INTENT_DE = "de";
+    public final static String KEY_INTENT_PARA = "para";
+    public final static String KEY_INTENT_QUANTIA = "quantia";
+
+    String para, de, quantia;
+
     private Context context;
 
 
@@ -46,6 +51,9 @@ public class WSClientConvert extends AsyncTask <String,Void,Double> {
     protected Double doInBackground(String... strings) {
         ArrayList<String> conversaoDolar = new ArrayList<String>();
         Double result=null;
+        de = strings[1];
+        para = strings[2];
+        quantia = strings[0];
         URL url ;
         try{
             if(strings[1].split(" ")[0].equals(strings[2].split(" ")[0])){
@@ -99,9 +107,14 @@ public class WSClientConvert extends AsyncTask <String,Void,Double> {
     @Override
     protected void onPostExecute(Double resultado) {
         super.onPostExecute(resultado);
-        Intent intent = new Intent(context,ResultadoActivity.class);
-        intent.putExtra(KEY_INTENT, resultado);
+        Intent intent = new Intent(context, ResultadoActivity.class);
+        intent.putExtra(KEY_INTENT_RESULTADO, resultado);
+        intent.putExtra(KEY_INTENT_DE, de);
+        intent.putExtra(KEY_INTENT_PARA, para);
+        intent.putExtra(KEY_INTENT_QUANTIA,quantia);
+
         context.startActivity(intent);
+
 
     }
 
