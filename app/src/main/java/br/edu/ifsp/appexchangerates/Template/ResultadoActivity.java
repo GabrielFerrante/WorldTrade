@@ -87,7 +87,8 @@ public class ResultadoActivity extends AppCompatActivity {
 
     }
     public void onClickCompartilharResultado(View v){
-        enviarMensagem("Olá, \na conversão da moeda: " + de
+        enviarMensagem("Olá "
+                + "\nA conversão da moeda: " + de
                 + "\nPara a moeda: "+ para
                 +"\nDe valor: "+quantia
                 +"\nTeve como resultado: "+valor.getText());

@@ -9,6 +9,7 @@
     <string name="valor">Valor</string>
     <string name="moedas">Moedas</string>
     <string name="erroConverter">Erro em converter</string>
+    <string name="valorNaoInserido">Valor não informado!</string>
     <!-- Strings A2 -->
     <string name="resultado">Resultado</string>
     <string name="compartilhar">Compartilhar</string>
@@ -18,6 +19,17 @@
     <string name="falhaEnvioMensagem">Falha em escolher app para enviar mensagem</string>
     <!-- Strings Menu -->
     <string name="sair">Sair</string>
-    <string name="title_activity_resultado">ResultadoActivity</string>
-
+    <string name="title_activity_resultado">Resultado</string>
+    <string name="aprender_calculo">
+        Como fazer o cálculo ?
+    </string>
+    <string name="calculo">
+        Para converter um valor de uma moeda para outra, é bem simples
+        \n\nPrimeiro você deve saber quanto vale a unidade de sua moeda para a outra.
+        \n\nExemplo: R$ 1,00 BRL (Reais) vale $ 0.18 USD (Dólares americano), então, se você deseja saber
+        a conversão de um valor, basta multiplicar o valor com a cotação da sua moeda para a outra.
+        \n\nExemplo: R$ 12,00 BRL X $ 0.18 USD ~= $2,16.
+        \n\nPara saber o valor unitário da outra moeda para a sua, basta dividir o valor pelo resultado obtido da conversão.
+        \n\nExemplo: R$ 12,00 BRL / $2,16 USD ~= R$ 5,55.
+    </string>
 </resources>

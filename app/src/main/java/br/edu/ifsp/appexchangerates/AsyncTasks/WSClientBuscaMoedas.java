@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 import br.edu.ifsp.appexchangerates.Template.MainActivity;
@@ -73,7 +74,7 @@ public class WSClientBuscaMoedas extends AsyncTask<String,Void,ArrayList<String>
     private ArrayList<String> executeJsonParser(InputStream myInputStream) throws IOException {
 
         ArrayList<String> siglas = new ArrayList<String>();
-        Reader reader = new InputStreamReader(myInputStream,  "UTF-8");
+        Reader reader = new InputStreamReader(myInputStream, StandardCharsets.UTF_8);
         JsonReader jsonReader = new JsonReader(reader);
 
         jsonReader.beginObject();

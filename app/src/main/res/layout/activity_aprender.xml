@@ -7,4 +7,86 @@
     android:layout_height="match_parent"
     tools:context=".Template.AprenderActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:id="@+id/rowIcone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/imgIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:minHeight="180sp"
+                    app:srcCompat="@mipmap/ic_aprender_foreground" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/rowExplicação"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/lblExplicacao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/carter_one"
+                    android:gravity="center"
+                    android:text="@string/aprender_calculo"
+                    android:textColor="@color/colorTitulo"
+                    android:textSize="32sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/rowCalculo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/lblCalculo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20sp"
+                    android:layout_marginRight="20sp"
+                    android:fontFamily="@font/carter_one"
+                    android:gravity="center"
+                    android:text="@string/calculo"
+                    android:textColor="@color/colorTitulo"
+                    android:textSize="24sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/rowVoltar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20sp"
+                android:background="#2196F3"
+                android:gravity="center">
+
+                <ImageButton
+                    android:id="@+id/btnVoltar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10sp"
+                    android:background="#2196F3"
+                    android:onClick="onClickVoltar"
+                    app:srcCompat="@mipmap/ic_voltar_foreground" />
+            </TableRow>
+
+        </TableLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

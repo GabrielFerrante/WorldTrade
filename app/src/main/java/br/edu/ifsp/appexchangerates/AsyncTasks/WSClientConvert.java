@@ -13,6 +13,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 import br.edu.ifsp.appexchangerates.Template.ResultadoActivity;
@@ -120,7 +121,7 @@ public class WSClientConvert extends AsyncTask <String,Void,Double> {
 
     private ArrayList<String> executeJsonParser(InputStream myInputStream) throws IOException{
         ArrayList<String> conversoes = new ArrayList<String>();
-        Reader reader = new InputStreamReader(myInputStream,  "UTF-8");
+        Reader reader = new InputStreamReader(myInputStream, StandardCharsets.UTF_8);
         JsonReader jsonReader = new JsonReader(reader);
         jsonReader.beginObject();
         while (jsonReader.hasNext()) {
@@ -144,7 +145,7 @@ public class WSClientConvert extends AsyncTask <String,Void,Double> {
         ArrayList<String> valores = new ArrayList<String>();
         reader.beginObject();
         while (reader.hasNext()) {
-            valores.add(reader.nextName() + ":" + String.valueOf(reader.nextDouble()));
+            valores.add(reader.nextName() + ":" + reader.nextDouble());
         }
         reader.endObject();
         return valores;

@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             WSClientBuscaMoedas wsClientBuscaMoedas = new WSClientBuscaMoedas(this);
 
-            wsClientBuscaMoedas.execute(new String[]{OpenExchangeRates_moedas});
+            wsClientBuscaMoedas.execute(OpenExchangeRates_moedas);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
 
     public void popularSpinner(ArrayList<String> siglas){
 
@@ -103,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
 
         switch (id){
             case R.id.action_aprender:
-                Intent intent = new Intent(this,AprenderActivity.class);
+                Intent intent = new Intent(MainActivity.this,AprenderActivity.class);
                 startActivity(intent);
                 break;
             case R.id.action_sair:
@@ -121,8 +122,13 @@ public class MainActivity extends AppCompatActivity {
     //CHAMA O PROCESSO ASSINCRONO DE CONVERSÃO
     public void onClickConverter(View view){
         try {
-            WSClientConvert ws = new WSClientConvert(this);
-            ws.execute(new String[]{valor.getText().toString(), de, para});
+            if(!valor.getText().toString().equals("")){
+                WSClientConvert ws = new WSClientConvert(this);
+                ws.execute(valor.getText().toString(), de, para);
+            }else{
+                Snackbar.make(valor,R.string.valorNaoInserido,Snackbar.LENGTH_SHORT).show();
+            }
+
         }catch (Exception e){
             e.printStackTrace();
             Snackbar.make(valor,R.string.erroConverter,Snackbar.LENGTH_LONG).show();
