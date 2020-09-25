@@ -1,0 +1,12 @@
+App de Conversão de moedas
+*Tela de Conversão - Tela 1
+*Visualização do resultado - Tela 2
+*Tela como que faz a conversão - Tela alternativa
+
+*Menu com 
+	*botão fechar
+	*Aprender como fazer conversão de moedas (Com icone)
+
+*Shared Preferences - Básico
+*Intent Implicita para Compartilhar Mensagem - Básico
+*Web Services - Open Exchange Rates - Avançado

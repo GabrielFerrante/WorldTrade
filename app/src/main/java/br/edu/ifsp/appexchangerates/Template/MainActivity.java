@@ -1,6 +1,7 @@
 package br.edu.ifsp.appexchangerates.Template;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,10 +21,15 @@ import java.util.ArrayList;
 
 import br.edu.ifsp.appexchangerates.AsyncTasks.WSClientBuscaMoedas;
 import br.edu.ifsp.appexchangerates.AsyncTasks.WSClientConvert;
+import br.edu.ifsp.appexchangerates.Model.SharedPreferencesMethods;
 import br.edu.ifsp.appexchangerates.R;
 
 public class MainActivity extends AppCompatActivity {
     private Spinner sp1, sp2;
+    public static final String valorKEY = "Valor";
+
+    public static final String[] keyListForStrings= {valorKEY};
+    private SharedPreferences preferences;
     String de, para;
     EditText valor;
     private static final String OpenExchangeRates_moedas = "https://openexchangerates.org/currencies.json?show_alternative=1";
@@ -34,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+
         valor = findViewById(R.id.txtValor);
         this.sp1 = findViewById(R.id.cbSiglasDe);
         this.sp2 = findViewById(R.id.cbSiglasPara);
@@ -43,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
             WSClientBuscaMoedas wsClientBuscaMoedas = new WSClientBuscaMoedas(this);
 
             wsClientBuscaMoedas.execute(OpenExchangeRates_moedas);
+
+
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -50,7 +60,38 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    @Override
+    protected void onResume() {
 
+        super.onResume();
+        SharedPreferencesMethods spm = new SharedPreferencesMethods(this);
+        this.preferences = spm.sharedPreferencesLoading();
+        this.loadingSharedPreferences();
+
+    }
+    private boolean savingSharedPreferences(String valor,String de ,String para){
+        SharedPreferencesMethods msp = new SharedPreferencesMethods(this);
+
+        msp.setStringsKeys(keyListForStrings);// Keys for strings datas
+
+        msp.setStringsValues(new String[]{valor,de,para});//Strings datas
+
+        if(msp.sharedPreferencesSaving()){
+            this.preferences = msp.sharedPreferencesLoading();
+            return true;
+        }else{
+            return false;
+        }
+    }
+    private boolean loadingSharedPreferences(){
+        try{
+            valor.setText(preferences.getString(valorKEY,""));
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+
+    }
 
     public void popularSpinner(ArrayList<String> siglas){
 
@@ -124,6 +165,9 @@ public class MainActivity extends AppCompatActivity {
         try {
             if(!valor.getText().toString().equals("")){
                 WSClientConvert ws = new WSClientConvert(this);
+                SharedPreferencesMethods spm = new SharedPreferencesMethods(this);
+                this.preferences = spm.sharedPreferencesLoading();
+                savingSharedPreferences(valor.getText().toString(),de ,para);
                 ws.execute(valor.getText().toString(), de, para);
             }else{
                 Snackbar.make(valor,R.string.valorNaoInserido,Snackbar.LENGTH_SHORT).show();

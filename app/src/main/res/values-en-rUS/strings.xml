@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WorldTrade</string>
+    <string name="conversao" translatable="false">Coin conversion</string>
+    <string name="para">For</string>
+    <string name="de">By</string>
+    <string name="valor">Value</string>
+    <string name="moedas">Coins</string>
+    <string name="erroConverter">Error converting</string>
+    <string name="valorNaoInserido">Value not informed</string>
+    <string name="resultado">Result</string>
+    <string name="compartilhar">Share</string>
+    <string name="novamente">Over Again</string>
+    <string name="titulo">Share your conversion with:</string>
+    <string name="falhaEnvioMensagem">Failed to choose app to send message</string>
+    <string name="sair">Exit</string>
+    <string name="title_activity_resultado">Result</string>
+    <string name="aprender_calculo">How to do the calculation?</string>
+    <string name="calculo">To convert a value from one currency to another, it is quite simple.
+        \n\n First you must know how much your currency unit is worth to another.
+        \n\nExample: R $ 1.00 BRL (Reais) is worth $ 0.18 USD (American Dollars), so if you want to know the conversion of a value, just multiply the value with the quotation of your currency to the other.
+        \n\n Example:</string>
+    <string name="calculo1">To find out the unit value of the other currency for yours, just divide the value by the result obtained from the conversion.</string>
+    <string name="calculo2">Now to perform the reverse operation, just multiply by the desired value.</string>
+</resources>

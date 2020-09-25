@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 
 public final class SharedPreferencesMethods {
 
-    public static final String PREF = "br.edu.ifsp.trabalho1pdm";
+    public static final String PREF = "br.edu.ifsp.appexchangerates";
     private SharedPreferences preferences;
 
     private String[] stringsValues = {};

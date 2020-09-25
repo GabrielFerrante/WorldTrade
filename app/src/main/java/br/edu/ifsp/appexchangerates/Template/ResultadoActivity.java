@@ -22,10 +22,7 @@ import br.edu.ifsp.appexchangerates.Model.SharedPreferencesMethods;
 import br.edu.ifsp.appexchangerates.R;
 
 public class ResultadoActivity extends AppCompatActivity {
-    public static final String valorKEY = "Valor";
-    public static final String paraKEY = "Para";
-    public static final String[] keyListForStrings= {valorKEY,paraKEY};
-    private SharedPreferences preferences;
+
 
     private String para,de,quantia;
 
@@ -37,64 +34,50 @@ public class ResultadoActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        SharedPreferencesMethods spm = new SharedPreferencesMethods(this);
-        this.preferences = spm.sharedPreferencesLoading();
         Intent intent = getIntent();
         de = intent.getStringExtra(WSClientConvert.KEY_INTENT_DE);
         para = intent.getStringExtra(WSClientConvert.KEY_INTENT_PARA);
         quantia = intent.getStringExtra(WSClientConvert.KEY_INTENT_QUANTIA);
 
         valor = findViewById(R.id.lblValor) ;
-        Locale brLocale = Locale.forLanguageTag("pt-BR");
-        NumberFormat brnf = NumberFormat.getInstance(brLocale);
+
+        Locale locale;
+        NumberFormat brnf;
+        if(Locale.getDefault().toString().equals("pt_BR")){
+            locale = Locale.forLanguageTag("pt-BR");
+            brnf = NumberFormat.getInstance(locale);
+        }else{
+            locale = Locale.forLanguageTag("en-US");
+            brnf = NumberFormat.getInstance(locale);
+        }
+
+
         valor.setText("$: "+brnf.format(intent.getDoubleExtra(WSClientConvert.KEY_INTENT_RESULTADO,0))+ "\n"+para);
 
-        savingSharedPreferences(valor.getText().toString(), para);
+
       
     }
-    @Override
-    protected void onResume() {
 
-        super.onResume();
-        SharedPreferencesMethods spm = new SharedPreferencesMethods(this);
-        this.preferences = spm.sharedPreferencesLoading();
-        this.loadingSharedPreferences();
 
-    }
 
-    private boolean savingSharedPreferences(String valor, String para){
-        SharedPreferencesMethods msp = new SharedPreferencesMethods(this);
-
-        msp.setStringsKeys(keyListForStrings);// Keys for strings datas
-
-        msp.setStringsValues(new String[]{valor,para});//Strings datas
-
-        if(msp.sharedPreferencesSaving()){
-            this.preferences = msp.sharedPreferencesLoading();
-            return true;
-        }else{
-            return false;
-        }
-    }
-    private boolean loadingSharedPreferences(){
-        try{
-            valor.setText(preferences.getString(valorKEY,""));
-            para = preferences.getString(paraKEY,"");
-            return true;
-        }catch (Exception e){
-            return false;
-        }
-
-    }
     public void onClickCompartilharResultado(View v){
-        enviarMensagem("Olá "
-                + "\nA conversão da moeda: " + de
-                + "\nPara a moeda: "+ para
-                +"\nDe valor: "+quantia
-                +"\nTeve como resultado: "+valor.getText());
+        if(Locale.getDefault().toString().equals("pt_BR")){
+            enviarMensagem("Olá "
+                    + "\nA conversão da moeda: " + de
+                    + "\nPara a moeda: "+ para
+                    +"\nDe valor: "+quantia
+                    +"\nTeve como resultado: "+valor.getText());
+        }else{
+            enviarMensagem("Hi "
+                    + "\nThe Coin conversion: " + de
+                    + "\nFor currency: "+ para
+                    +"\nValue: "+quantia
+                    +"\nAs a result: "+valor.getText());
+        }
+
     }
     public void onClickNovamente(View v){
-        this.savingSharedPreferences("","");
+
         finish();
     }
     private void enviarMensagem(String texto){
