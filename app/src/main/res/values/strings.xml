@@ -28,8 +28,12 @@
         \n\nPrimeiro você deve saber quanto vale a unidade de sua moeda para a outra.
         \n\nExemplo: R$ 1,00 BRL (Reais) vale $ 0.18 USD (Dólares americano), então, se você deseja saber
         a conversão de um valor, basta multiplicar o valor com a cotação da sua moeda para a outra.
-        \n\nExemplo: R$ 12,00 BRL X $ 0.18 USD ~= $2,16.
-        \n\nPara saber o valor unitário da outra moeda para a sua, basta dividir o valor pelo resultado obtido da conversão.
-        \n\nExemplo: R$ 12,00 BRL / $2,16 USD ~= R$ 5,55.
+        \n\nExemplo:
+    </string>
+    <string name="calculo1">
+        Para saber o valor unitário da outra moeda para a sua, basta dividir o valor pelo resultado obtido da conversão.
+    </string>
+    <string name="calculo2">
+        Agora para realizar a operação inversa, basta multiplicar pelo valor desejado.
     </string>
 </resources>

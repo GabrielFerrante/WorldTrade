@@ -55,16 +55,94 @@
                 android:gravity="center">
 
                 <TextView
-                    android:id="@+id/lblCalculo"
+                    android:id="@+id/lblCalculo1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20sp"
-                    android:layout_marginRight="20sp"
+                    android:layout_weight="1"
                     android:fontFamily="@font/carter_one"
                     android:gravity="center"
                     android:text="@string/calculo"
                     android:textColor="@color/colorTitulo"
                     android:textSize="24sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/rowExemplo1"
+                android:layout_width="match_parent"
+                android:layout_height="269dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/exemplo1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50sp"
+                    android:layout_marginRight="50sp"
+                    app:srcCompat="@drawable/exemplo1" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/rowCalculo1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:id="@+id/lblCalculo2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/carter_one"
+                    android:gravity="center"
+                    android:text="@string/calculo1"
+                    android:textColor="@color/colorTitulo"
+                    android:textSize="24sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/rowExemplo2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/exemplo2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50sp"
+                    android:layout_marginRight="50sp"
+                    app:srcCompat="@drawable/exemplo2" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/rowCalculo2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:id="@+id/lblCalculo3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/carter_one"
+                    android:gravity="center"
+                    android:text="@string/calculo2"
+                    android:textColor="@color/colorTitulo"
+                    android:textSize="24sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/rowExemplo3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/exemplo3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50sp"
+                    android:layout_marginRight="50sp"
+                    app:srcCompat="@drawable/exemplo3" />
             </TableRow>
 
             <TableRow
